@@ -1,0 +1,195 @@
+@import '~assets/utils.less';
+.area{
+    padding:@font24 @font20;
+    background-color:#fff;
+    // .title{
+    //   span{
+    //     display:inline-block;
+    //     vertical-align:top;
+    //     height:@font20;
+    //     line-height:@font20;
+    //   }
+    //   .text{
+    //     font-size:@font20;
+    //     .fontFamily("PingFangSC-Semibold");
+    //   }
+    //   .status{
+    //     color:#0984F9;
+    //     font-size:@font13;
+    //     padding:0 @font4;
+    //     margin-left:@font9;
+    //     background:#DAEDFE;
+    //     border-radius: @font2;
+    //   }
+    //   >a{
+    //     float: right;
+    //     display:block;.px2rem(width, 60);height:100%;text-align:right;
+    //     font-size:@font14;color:#0984F9;text-decoration:none;
+    //   }
+    // }
+    p{
+      position: relative;
+      font-size:@font14;
+      color:#999999;
+      margin-top:@font9;
+      .fontFamily("PingFangSC-Regular");
+      svg{
+        position: absolute;
+        right:0;
+        top:50%;
+        transform: translate(0,-50%);
+        color:#999;
+      }
+    }
+    .tips{
+      padding:@font12 0 0 @font16;
+      p{
+         position: relative;
+         color:#222;
+         line-height:@font20;
+         &:after{
+           content:"";
+           display: block;
+           width:@font6;
+           height:@font6;
+           border-radius:50%;
+           position: absolute;
+           left:-@font16;
+           top:@font7;
+           background-color:#222;
+         }
+      }
+    }
+    .info{
+      border-top:@font1 solid #E5E5E5;
+      margin-top:@font20;
+      padding-top:@font18;
+      p{
+        line-height:@font20;
+        font-family: @baseFontFamily;
+        margin-top:0;
+      }
+      .am-button{
+        border-radius: @font2;
+        height:@font50;
+        line-height:@font50;
+        font-size:@font16;
+        margin-top: @font12;
+        background: #0984F9!important;
+        border:none;
+        text-decoration:none;
+      }
+      &.hightLight{
+        p{
+          color: #222;
+        }
+      }
+    }
+    .basic-tag {
+      display: inline-block;
+      position: absolute;
+      top:70%;
+      .fontFamily('PingFangSC-Regular');
+      .px2rem(margin-left, 8);
+      font-size: @font14;
+      color: #27c0a1;
+      text-align: center;
+      &-icon {
+        display: inline-block;
+        .px2rem(height, 15.5);
+        .px2rem(width, 15);
+        vertical-align: middle;
+        transform: translateY(-2px);
+        .px2rem(margin-left, 7);
+      }
+      &-icon-bad {
+        background: url('~assets/images/newHouse/waring@3x.png') no-repeat
+          center;
+        background-size: 100%;
+      }
+      &-icon-good {
+        background: url('~assets/images/newHouse/dianzan@3x.png') no-repeat
+          center;
+        background-size: 100%;
+      }
+    }
+    .good-tag {
+      color: #27c0a1;
+    }
+    .bad-tag {
+      color: #ee4b4b;
+    }
+}
+.data{
+// .sum{
+//     display:flex;
+//     justify-content: center;
+//     padding:@font24 0 @font30 0;
+//     div{
+//     flex: 1;
+//     text-align:center;
+//     span{
+//         display:block;
+//         font-size:@font32;
+//         color:#222;
+//         .fontFamily("DIN-Bold");
+//         &:nth-child(2){
+//         font-size:@font14;
+//         color:#999999;
+//         padding-top:@font10;
+//         }
+//     }
+//     }
+// }
+ul{
+    li{
+    text-align:center;
+    position: relative;
+    h3{
+        position: relative;
+        color:#0984F9;
+        font-size:@font16;
+        height:@font50;
+        line-height:@font50;
+        font-family: @mediumFontFamily;
+        background: rgba(9,132,249,0.10);
+        overflow: hidden;
+        &:after,&:before{
+        content:"";
+        display:block;
+        position: absolute;
+        top:0;
+        .triangle(border-bottom,@font25,#fff)
+        }
+        &:after{ left:-@font24}
+        &:before{right:-@font24}
+    }
+    span{
+        position: relative;
+        display:inline-block;
+        font-size:@font12;
+        color:#222;
+        margin:@font12 0;
+        padding:@font2 @font8;
+        border-radius:@font2;
+        line-height:@font16;
+        background: #F0F0F0;
+        &:after{
+        position: absolute;
+        bottom:-@font8;
+        left:50%;
+        transform:translate(-50%,0); 
+        content:"";
+        display:block;
+        .triangle(border-top,@font6)
+        }
+    }
+    &:nth-child(2){ padding:0 @font20}
+    &:nth-child(3){ padding:0 @font40}
+    &:nth-child(4){ 
+        .px2rem(padding-left,60);
+        .px2rem(padding-right,60);
+    }
+    }
+}
+}

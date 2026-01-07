@@ -1,0 +1,130 @@
+@import '~assets/utils.less';
+
+.c-qk-data-overview-container {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  .c-qk-data-overview-top {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    .px2rem(padding-left, 15);
+    .px2rem(padding-right, 15);
+    .px2rem(height, 40);
+    background-color: #fff;
+    div:nth-child(1) {
+      display: flex;
+      flex-direction: column;
+      max-width: '80%';
+      justify-content: center;
+    }
+    .title {
+      .px2rem(font-size, 16);
+    }
+  }
+  .c-qk-data-subtitle {
+    font-family: PingFangSC-Regular;
+    .px2rem(font-size, 12);
+    color: #999999;
+    letter-spacing: 0;
+    text-align: right;
+  }
+  .c-qk-data-overview-body {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 100%;
+    background: white;
+    overflow: hidden;
+    .px2rem(padding-top, 12);
+    .px2rem(padding-bottom, 12);
+    .c-qkdata-item {
+      display: flex;
+      flex: 1;
+      flex-direction: column;
+      .px2rem(padding-right, 10);
+      .px2rem(padding-left, 10);
+      .px2rem(font-size, 12);
+      .item-name {
+        font-family: PingFangSC-Regular;
+        color: #999;
+        .px2rem(line-height, 12);
+        text-align: center;
+      }
+      .item-value {
+        font-family: DINCondensed-Bold;
+        .px2rem(font-size, 28);
+        .px2rem(margin-top, 7);
+        text-align: center;
+      }
+      .item-rank-box {
+        .px2rem(margin-top, 5);
+        text-align: center;
+      }
+      .item-description {
+        font-family: PingFangSC-Regular;
+        .px2rem(font-size, 12);
+        color: #222222;
+        .px2rem(line-height, 12);
+      }
+      .item-rank {
+        font-family: PingFangSC-Regular;
+        .px2rem(font-size, 12);
+        .px2rem(line-height, 12);
+        color: red;
+      }
+      .item-total-rank {
+        font-family: PingFangSC-Regular;
+        .px2rem(font-size, 12);
+        color: #222222;
+        .px2rem(line-height, 12);
+      }
+
+      .kedm-icon-basis {
+        margin-top: @font2;
+      }
+    }
+    .c-qkdata-item-border {
+      border-right: 1px solid #eee;
+    }
+  }
+
+  .tag-label {
+    margin: @font1 @font2 0 0;
+  }
+
+  .kedm-tag-text {
+    display: flex;
+  }
+}
+.c-qk-data-overview-remark {
+  .am-popover-inner,
+  .am-popover-inner-wrapper,
+  .am-popover-arrow {
+    background-color: rgba(0, 0, 0, 0.75);
+    color: #fff;
+    font-size: 14px;
+    max-width: 285px;
+  }
+  max-width: 300px;
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 3px;
+  box-shadow: 0 2px 8px #d9d9d9;
+  margin: 0 15px;
+  .am-popover-inner-wrapper {
+    padding: 14px;
+  }
+  &-text {
+    font-size: 14px;
+    line-height: 22px;
+    margin-right: 26px;
+  }
+}
+
+.qianke-hint {
+  .kedm-tooltip-inner-wrapper {
+    font-size: @font12;
+  }
+}

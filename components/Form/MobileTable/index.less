@@ -1,0 +1,48 @@
+@import '~assets/utils.less';
+
+.c-form-mobiletable {
+  table {
+    width: 100%;
+    tr {
+      font-family: PingFangSC-Semibold;
+      font-size: @font14;
+      td {
+        line-height: @font20;
+        padding: @font9 @font3;
+      }
+    }
+    thead {
+      tr {
+        font-family: PingFangSC-Regular;
+        font-size: @font13;
+        color: #555;
+        .sort-parent {
+          display: inline-block;
+          margin-left: 4px;
+          .sp-top {
+            margin-bottom: 2px;
+            width: 0px;
+            height: 0px;
+            border-left: 3px solid transparent;
+            border-right: 3px solid transparent;
+            border-bottom: 4px solid #ccc;
+            &.active {
+              border-bottom: 4px solid #e64b3e;
+            }
+          }
+          .sp-bottom {
+            margin-top: 2px;
+            width: 0px;
+            height: 0px;
+            border-left: 3px solid transparent;
+            border-right: 3px solid transparent;
+            border-top: 4px solid #ccc;
+            &.active {
+              border-top: 4px solid #e64b3e;
+            }
+          }
+        }
+      }
+    }
+  }
+}

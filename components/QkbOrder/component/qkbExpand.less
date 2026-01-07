@@ -1,0 +1,106 @@
+@import '~assets/utils.less';
+
+.c-qkborder-container {
+  display: flex;
+  flex-direction: column;
+  .c-qkborder-top {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px 0 20px;
+    height: 64px;
+    width: 100%;
+    background-color: #fff;
+    div:nth-child(1) {
+      display: flex;
+      flex-direction: column;
+      max-width: '80%';
+      justify-content: center;
+    }
+  }
+  .c-qkborder-button {
+    display: flex;
+    flex-direction: row;
+    background: white;
+    padding: 0 20px 0 20px;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    height: 50px;
+    .active {
+      display: flex;
+      background: rgb(255, 230, 228);
+      justify-content: center;
+      align-items: center;
+      color: #e64b3e;
+      width: 85px;
+      height: 32px;
+      margin-right: 12px;
+    }
+    .unactive {
+      display: flex;
+      background: #f8f8f8;
+      justify-content: center;
+      align-items: center;
+      color: #222222;
+      width: 85px;
+      height: 32px;
+      margin-right: 12px;
+    }
+  }
+  .c-qkborder-body {
+    height: 160px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 100%;
+    background: white;
+    overflow: hidden;
+    div {
+      display: flex;
+      flex-direction: column;
+      width: 33%;
+      height: 70px;
+      padding-left: 20px;
+      padding-bottom: 10px;
+      margin-top: 10px;
+      border-right: 0.5px solid #eee;
+      span:nth-child(1) {
+        font-size: 28px;
+        color: #222222;
+        line-height: 22px;
+      }
+      span:nth-child(2) {
+        font-size: 12px;
+        color: #999999;
+        line-height: 14px;
+        margin-top: 10px;
+      }
+    }
+  }
+}
+.c-qkborder-remark {
+  .am-popover-inner,
+  .am-popover-inner-wrapper,
+  .am-popover-arrow {
+    background-color: rgba(0, 0, 0, 0.75);
+    color: #fff;
+    font-size: 14px;
+    max-width: 285px;
+  }
+  max-width: 300px;
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 2px;
+  box-shadow: 0 2px 8px #d9d9d9;
+  margin: 0 15px;
+  .am-popover-inner-wrapper {
+    padding: 14px;
+  }
+  &-text {
+    font-size: 14px;
+    line-height: 22px;
+    margin-right: 26px;
+  }
+}

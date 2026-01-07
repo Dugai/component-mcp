@@ -1,0 +1,96 @@
+@import '~assets/utils.less';
+
+.radio-list {
+  background: #fff;
+
+  &__title {
+    padding: @font8 @font20;
+    font-size: @font18;
+    font-weight: 500;
+    color: #222;
+  }
+
+  &__body {
+    background: #fff;
+  }
+
+  &__row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: @font16 @font20;
+    border-bottom: 1px solid #f2f2f2;
+  }
+
+  &__row:last-child {
+    border-bottom: none;
+  }
+
+  &__titles {
+    margin-left: @font6;
+  }
+
+  &__left {
+    display: flex;
+    align-items: center;
+  }
+
+  // Radio 组件样式调整
+  .ked-radio {
+    margin-right: @font12;
+  }
+
+  .kedm-radio-checked {
+    .kedm-radio-inner {
+      border-color: #e64b3e;
+
+      &::after {
+        background-color: #e64b3e;
+      }
+    }
+  }
+
+  .kedm-radio {
+    .kedm-radio-inner {
+      &::after {
+        background-color: #e64b3e;
+      }
+    }
+  }
+
+  &__main-title {
+    display: flex;
+    align-items: center;
+  }
+
+  &__main-title-text {
+    font-size: @font16;
+    color: #222;
+    font-weight: 500;
+  }
+
+  &__main-tag {
+    margin-left: @font10;
+    font-size: @font16;
+    color: #222;
+  }
+
+  &__sub-text {
+    margin-top: @font6;
+    font-size: @font12;
+    color: #666;
+  }
+
+  &__price {
+    .px2rem(font-size, 16);
+    font-weight: 500;
+    color: #e64b3e;
+  }
+
+  &__toggle {
+    padding: @font16;
+    text-align: center;
+    color: #999;
+    font-size: @font14;
+  }
+}

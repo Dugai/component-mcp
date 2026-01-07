@@ -1,0 +1,110 @@
+@import '~assets/utils.less';
+
+.diamond-price-c-picker {
+  background: #fff;
+  z-index: 2;
+  .am-picker {
+    .am-picker-col:first-child {
+      flex: 1.1 1 0% !important;
+    }
+  }
+  .am-picker-col-content {
+    background-color: #fff;
+  }
+  .am-picker-col-item-selected {
+    font-weight: 600;
+    color: #dd1f1f;
+  }
+  .am-picker-col-mask {
+    background-image: linear-gradient(
+        to bottom,
+        rgba(255, 255, 255, 0.95),
+        rgba(255, 255, 255, 0.2)
+      ),
+      linear-gradient(to top, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.2));
+  }
+  .am-picker-popup-title {
+    font-weight: 600;
+    font-size: @font14;
+  }
+
+  .diamond-price-c-picker-extra-placeholder {
+    color: #999;
+  }
+  .diamond-price-c-picker-button-disabled {
+    .am-list-line {
+      .am-list-extra {
+        color: #999;
+      }
+    }
+  }
+  .diamond-price-c-picker-button,
+  .diamond-price-c-picker-button-disabled {
+    .am-list-line .am-list-arrow {
+      width: 16px;
+      height: 16px;
+      margin-left: 2px;
+    }
+    .am-list-line {
+      padding-right: 17px !important;
+    }
+  }
+  &-popup-header {
+    display: flex;
+    line-height: 40px;
+    background: #fff;
+    border-bottom: 1px solid #f2f2f2;
+    .px2rem(font-size, 16);
+    &-left {
+      color: #555;
+      padding: 0 15px;
+    }
+    &-right {
+      color: #dd1f1f;
+      padding: 0 15px;
+    }
+  }
+  &-popup-title {
+    flex: 1;
+    color: #222;
+    text-align: center;
+  }
+}
+
+.diamond-price-c-picker-description {
+  padding-bottom: 14px;
+  padding-left: 4vw;
+  color: #999;
+  .px2rem(font-size, 12);
+  &-price {
+    color: #ff5722;
+  }
+}
+
+.diamond-price-c-picker-popup-mask {
+  z-index: 2;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.diamond-price-c-picker-popup-wrap {
+  z-index: 2;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.diamond-price-c-picker-main {
+  .require {
+    position: absolute;
+    font-size: 12px;
+    .px2rem(top, 16);
+    .px2rem(left, 6);
+    color: red;
+  }
+}

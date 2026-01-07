@@ -1,0 +1,41 @@
+@import '~assets/utils.less';
+.input-number-range {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 24px;
+  li {
+    min-width: 24px;
+  }
+  .num {
+    font-family: @baseFontFamily;
+    font-size: @font14;
+    color: #333333;
+    text-align: center;
+  }
+  .minus, .plus {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+  }
+  .minus {
+    background: url('~assets/images/icon_jian_s@2x.png') center center no-repeat;
+    background-size: 100% 100%;
+    &.disabled {
+      background: url('~assets/images/icon_jian_u@2x.png') center center no-repeat;
+      background-size: 100% 100%;
+      pointer-events: none;
+      cursor: not-allowed;
+    }
+  }
+  .plus {
+    background: url('~assets/images/icon_jia_s@2x.png') center center no-repeat;
+    background-size: 100% 100%;
+    &.disabled {
+      background: url('~assets/images/icon_jia_u@2x.png') center center no-repeat;
+      background-size: 100% 100%;
+      pointer-events: none;
+      cursor: not-allowed;
+    }
+  }
+}

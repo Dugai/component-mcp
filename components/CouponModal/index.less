@@ -1,0 +1,54 @@
+@import '~assets/utils.less';
+
+.mbrand-coupon-modal {
+  .am-modal-content {
+    padding: @font20 @font20 0;
+    .px2rem(border-top-left-radius, 8);
+    .px2rem(border-top-right-radius, 8);
+    text-align: start;
+  }
+
+  .title {
+    .px2rem(font-size, 18);
+    font-family: 'PingFangSC-Semibold';
+    color: #222222;
+  }
+
+  .coupon-list-wrapper {
+    .px2rem(max-height, 400);
+    .px2rem(min-height, 200);
+    overflow: auto;
+  }
+
+  .coupon-list-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .px2rem(height, 50);
+
+    .coupon-name {
+      font-size: @font16;
+      color: #222222;
+    }
+  }
+
+  .primary-footer-button {
+    .am-button-primary {
+      .px2rem(height, 48);
+      .px2rem(line-height, 48);
+      .px2rem(border-radius, 6);
+      .px2rem(margin-bottom, 20);
+      .px2rem(font-size, 16);
+    }
+  }
+
+  .kedm-radio-checked {
+    .kedm-radio-inner {
+      border-color: #e64b3e;
+
+      &::after {
+        background-color: #e64b3e;
+      }
+    }
+  }
+}
