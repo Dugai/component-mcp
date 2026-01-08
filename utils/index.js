@@ -46,7 +46,6 @@ async function scanDirectory(dir, exts) {
 // 1. 组件文件扫描工具
 exports.scanComponentFiles = async (componentDir, supportedExts = ['.js', '.ts', '.jsx', '.tsx', '.vue']) => {
   try {
-    console.log(componentDir, '路径')
     // 检查目录是否存在
     const exists = await fs.pathExists(componentDir);
     if (!exists) {
@@ -166,20 +165,4 @@ exports.extractComponentMeta = async (filePath) => {
   }
 
   return componentMeta;
-};
-
-// 3. 向量库操作工具（基于 ChromaDB）
-const { ChromaClient } = require('chromadb');
-const chromaClient = new ChromaClient();
-const EMBEDDING_MODEL_DIM = 384; // all-MiniLM-L6-v2 向量维度（后续向量化需匹配）
-
-exports.getChromaCollection = async (collectionName) => {
-  try {
-    return await chromaClient.getCollection({ name: collectionName });
-  } catch (err) {
-    return await chromaClient.createCollection({
-      name: collectionName,
-      metadata: { description: '前端组件特征向量集合' }
-    });
-  }
 };

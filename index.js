@@ -2,7 +2,7 @@
 const { McpServer } = require("@modelcontextprotocol/sdk/server/mcp.js");
 const { StdioServerTransport } = require("@modelcontextprotocol/sdk/server/stdio.js");
 const { z } = require("zod");
-const { initComponentKnowledgeBase, retrieveMatchedComponents } = require('./services/knowledgeBaseService');
+const { initComponentKnowledgeBase, retrieveMatchedComponents } = require('./services/knowledgeBaseService-lancedb');
 
 // 定义工具的参数 schema
 const InitKnowledgeBaseArgsSchema = {

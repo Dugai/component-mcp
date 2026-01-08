@@ -48,3 +48,4 @@ temp/
 Thumbs.db
 
 node_modules
+.codelink

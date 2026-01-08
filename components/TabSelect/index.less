@@ -1,15 +1,14 @@
-@import '~assets/utils.less';
-
 .mbrand-tab-select {
   position: relative;
-  margin: @font8;
-  border-radius: @font8;
+  margin: 0 8px;
+  border-radius: 12px;
   background-color: transparent;
 
   .mbrand-tab-item-wrapper {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-bottom: -1px;
   }
 
   .mbrand-tab-item {
@@ -17,9 +16,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: @font8;
-    .px2rem(font-size, 20);
-    .px2rem(height, 54);
+    border-radius: 12px;
+    font-size: 20px;
+    height: 54px;
     color: #222;
     font-weight: 500;
   }
@@ -50,33 +49,33 @@
       bottom: 0;
     }
     & when (@direction = left) {
-      .px2rem(left, @offset);
+      left: (@offset * 1px);
     }
     & when (@direction = right) {
-      .px2rem(right, @offset);
+      right: (@offset * 1px);
     }
     content: '';
     background: @bg-color;
-    .px2rem(height, @height);
-    .px2rem(width, @width);
+    height: (@height * 1px);
+    width: (@width * 1px);
   }
 
   .active-first {
-    .position-relative;
-    .background-white;
+    .position-relative();
+    .background-white();
 
     &::after {
-      .pseudo-element(top, right, -4, #f2f2f2, 10, 10);
+      .pseudo-element(top, right, -10, #f2f2f2, 44, 44);
     }
 
     &::before {
-      .pseudo-element(bottom, right, -4, #fff, 10, 10);
+      .pseudo-element(bottom, right, -10, #fff, 44, 44);
     }
   }
 
   .active-middle {
-    .position-relative;
-    .background-white;
+    .position-relative();
+    .background-white();
 
     &::before {
       .pseudo-element(bottom, left, -5, #fff, 20, 20);
@@ -88,25 +87,25 @@
   }
 
   .active-last {
-    .position-relative;
-    .background-white;
+    .position-relative();
+    .background-white();
 
     &::before {
-      .pseudo-element(top, left, -5, #f2f2f2, 20, 20);
+      .pseudo-element(top, left, -10, #f2f2f2, 44, 44);
     }
 
     &::after {
-      .pseudo-element(bottom, left, -5, #fff, 20, 20);
+      .pseudo-element(bottom, left, -10, #fff, 44, 44);
     }
   }
 
   .disabled {
-    .background-gray;
+    .background-gray();
   }
 
   .disabled-first {
-    .position-relative;
-    .disabled;
+    .position-relative();
+    .disabled();
 
     &::after {
       .pseudo-element(bottom, right, -5, #f2f2f2, 54, 20);
@@ -114,8 +113,8 @@
   }
 
   .disabled-left {
-    .position-relative;
-    .disabled;
+    .position-relative();
+    .disabled();
 
     &::after {
       .pseudo-element(top, right, -5, #f2f2f2, 20, 20);
@@ -123,8 +122,8 @@
   }
 
   .disabled-right {
-    .position-relative;
-    .disabled;
+    .position-relative();
+    .disabled();
 
     &::after {
       .pseudo-element(top, left, -5, #f2f2f2, 20, 20);
@@ -134,7 +133,7 @@
   .content-wrapper {
     position: relative;
     background-color: #fff;
-    border-radius: @font8;
+    border-radius: 12px;
   }
 
   /* 定义一个 mixin 用于生成伪元素的样式 */
@@ -143,9 +142,9 @@
     &::after {
       position: absolute;
       z-index: -1;
-      .px2rem(top, -4);
-      .px2rem(width, 20);
-      .px2rem(height, 20);
+      top: -10px;
+      width: 20px;
+      height: 20px;
       content: '';
     }
 
@@ -161,17 +160,17 @@
   }
 
   .content-wrapper0 {
-    .content-wrapper;
+    .content-wrapper();
     .pseudo-element-style(#fff, #f2f2f2);
   }
 
   .content-wrapper1 {
-    .content-wrapper;
+    .content-wrapper();
     .pseudo-element-style(#f2f2f2, #f2f2f2);
   }
 
   .content-wrapper2 {
-    .content-wrapper;
+    .content-wrapper();
     .pseudo-element-style(#f2f2f2, #fff);
   }
 }
