@@ -3,16 +3,6 @@ const { McpServer } = require("@modelcontextprotocol/sdk/server/mcp.js");
 const { StdioServerTransport } = require("@modelcontextprotocol/sdk/server/stdio.js");
 const { z } = require("zod");
 const { initComponentKnowledgeBase, retrieveMatchedComponents } = require('./services/knowledgeBaseService-lancedb');
-
-// 定义工具的参数 schema
-const InitKnowledgeBaseArgsSchema = {
-  componentDir: z.string().describe('前端项目 components 文件夹路径（绝对路径或相对路径）')
-};
-
-const RetrieveComponentArgsSchema = {
-  businessRequirement: z.string().describe('业务组件需求描述（如「带分页的商机列表表格组件」）')
-};
-
 class ComponentMcpServer {
   constructor() {
     this.server = new McpServer(
@@ -21,11 +11,6 @@ class ComponentMcpServer {
         version: "1.0.0",
         description: "前端组件知识库管理 MCP 工具（无内置大模型，支持 RAG 检索组件）"
       },
-      {
-        capabilities: {
-          tools: {}
-        }
-      }
     );
 
     this.setupTools();
@@ -33,10 +18,15 @@ class ComponentMcpServer {
 
   setupTools() {
     // 工具 1：初始化组件知识库
-    this.server.tool(
+    this.server.registerTool(
       "init_component_knowledge_base",
-      "扫描前端项目 components 文件夹，构建组件知识库（仅存储核心元信息，不存储完整代码）",
-      InitKnowledgeBaseArgsSchema,
+      {
+        title: "生成组件库知识库",
+        description: "扫描前端项目 components 文件夹，构建组件知识库（仅存储核心元信息，不存储完整代码）",
+        inputSchema: {
+          componentDir: z.string().length(100).describe("前端项目components文件夹路径（绝对路径或相对路径）"),
+        },
+      },
       async (args) => {
         try {
           const result = await initComponentKnowledgeBase(args.componentDir);
@@ -62,10 +52,16 @@ class ComponentMcpServer {
     );
 
     // 工具 2：检索适配组件
-    this.server.tool(
+    this.server.registerTool(
       "retrieve_matched_components",
       "根据业务需求从知识库检索适配组件，无匹配则返回空结果",
-      RetrieveComponentArgsSchema,
+      {
+        title: "匹配组件，并使用",
+        description: "根据业务需求从知识库检索适配组件，无匹配则返回空结果",
+        inputSchema: {
+          businessRequirement: z.string().length(100).describe("业务组件需求描述（如「带分页的商机列表表格组件」）"),
+        },
+      },
       async (args) => {
         try {
           const result = await retrieveMatchedComponents(args.businessRequirement);

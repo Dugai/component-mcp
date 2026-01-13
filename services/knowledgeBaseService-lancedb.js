@@ -12,7 +12,7 @@ const DB_CONFIG = {
 
 // 嵌入接口配置
 const EMBEDDING_API_CONFIG = {
-  url: "https://openapi-ait.ke.com/v1/embeddings",
+  url: "",
   headers: {
     Accept: "*/*",
     "Accept-Language": "zh-CN,zh;q=0.9,en;q=0.8",
@@ -110,7 +110,6 @@ const callEmbeddingAPI = async (text, retryCount = 0) => {
           // 1. 计算并等待限流时间
           const waitTime = calculateWaitTime();
           if (waitTime > 0) {
-            console.log(`⏳ 限流等待 ${(waitTime / 1000).toFixed(1)} 秒...`);
             await sleep(waitTime);
           }
 
@@ -229,13 +228,9 @@ exports.initComponentKnowledgeBase = async (componentDir) => {
     }
 
     // 步骤4：生成向量（修复只处理1个组件的问题）
-    console.log(`🔄 开始为 ${componentMetas.length} 个组件生成向量...`);
     const dataWithVectors = [];
     for (let i = 0; i < componentMetas.length; i++) {
       const meta = componentMetas[i];
-      console.log(
-        `🔹 处理组件 ${i + 1}/${componentMetas.length}: ${meta.componentName}`
-      );
 
       const vector = await callEmbeddingAPI(meta.featureSummary);
       dataWithVectors.push({
@@ -258,7 +253,6 @@ exports.initComponentKnowledgeBase = async (componentDir) => {
     const queryVector = await callEmbeddingAPI("选择日期组件"); // 取消注释并定义变量
     const searchResults = await table.search(queryVector).limit(2).toArray();
 
-    console.log(`✅ 知识库初始化完成，共处理 ${componentMetas.length} 个组件`);
     return {
       success: true,
       message: "知识库初始化成功",
@@ -276,7 +270,7 @@ exports.initComponentKnowledgeBase = async (componentDir) => {
   }
 };
 
-// RAG组件检索（修复queryVector未定义）
+// RAG组件检索
 exports.retrieveMatchedComponents = async (businessRequirement) => {
   try {
     // 入参校验
@@ -298,11 +292,13 @@ exports.retrieveMatchedComponents = async (businessRequirement) => {
 
     const table = await db.openTable(DB_CONFIG.tableName);
 
-    // 生成查询向量（取消注释并定义变量）
+    // 生成查询向量
     const queryVector = await callEmbeddingAPI(businessRequirement);
 
     // 向量搜索
-    const searchResults = await table.search(queryVector).limit(5).toArray();
+    const searchResults = await table.search(queryVector).limit(2).toArray();
+
+    console.log(searchResults)
 
     // 加载完整元信息
     const matchedComponents = [];
@@ -331,7 +327,6 @@ exports.retrieveMatchedComponents = async (businessRequirement) => {
       query: businessRequirement,
     };
   } catch (err) {
-    console.error("❌ 组件检索失败:", err);
     return {
       success: false,
       message: "组件检索失败",
@@ -350,5 +345,8 @@ exports.EMBEDDING_API_CONFIG = EMBEDDING_API_CONFIG;
   //   "/Users/xyz/Documents/beke-item/component-mcp/components"
   // );
   // console.log("初始化结果:", result);
-  await exports.retrieveMatchedComponents("生成一个日期组件");
+  await exports.retrieveMatchedComponents("帮我生成一个沉浸式组件");
 })();
+
+
+
