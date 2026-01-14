@@ -12,7 +12,7 @@ const DB_CONFIG = {
 
 // 嵌入接口配置
 const EMBEDDING_API_CONFIG = {
-  url: "",
+  url: "https://openapi-ait.ke.com/v1/embeddings",
   headers: {
     Accept: "*/*",
     "Accept-Language": "zh-CN,zh;q=0.9,en;q=0.8",
@@ -186,7 +186,7 @@ const callEmbeddingAPI = async (text, retryCount = 0) => {
 // 初始化组件知识库
 exports.initComponentKnowledgeBase = async (componentDir) => {
   try {
-    const { scanComponentFiles, extractComponentMeta } = require("./utils");
+    const { scanComponentFiles, extractComponentMeta } = require("../utils");
 
     // 步骤1：初始化目录
     await fs.ensureDir(DB_CONFIG.metaDbPath);
@@ -339,14 +339,14 @@ exports.retrieveMatchedComponents = async (businessRequirement) => {
 exports.DB_CONFIG = DB_CONFIG;
 exports.EMBEDDING_API_CONFIG = EMBEDDING_API_CONFIG;
 
-// 初始化调用（建议用异步包装避免顶层await问题）
-(async () => {
-  // const result = await exports.initComponentKnowledgeBase(
-  //   "/Users/xyz/Documents/beke-item/component-mcp/components"
-  // );
-  // console.log("初始化结果:", result);
-  await exports.retrieveMatchedComponents("帮我生成一个沉浸式组件");
-})();
+// // 初始化调用（建议用异步包装避免顶层await问题）
+// (async () => {
+//   // const result = await exports.initComponentKnowledgeBase(
+//   //   "/Users/xyz/Documents/beke-item/component-mcp/components"
+//   // );
+//   // console.log("初始化结果:", result);
+//   await exports.retrieveMatchedComponents("帮我生成一个沉浸式组件");
+// })();
 
 
 

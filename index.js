@@ -24,7 +24,7 @@ class ComponentMcpServer {
         title: "生成组件库知识库",
         description: "扫描前端项目 components 文件夹，构建组件知识库（仅存储核心元信息，不存储完整代码）",
         inputSchema: {
-          componentDir: z.string().length(100).describe("前端项目components文件夹路径（绝对路径或相对路径）"),
+          componentDir: z.string().min(1).describe("前端项目components文件夹路径（绝对路径或相对路径）"),
         },
       },
       async (args) => {
@@ -59,7 +59,7 @@ class ComponentMcpServer {
         title: "匹配组件，并使用",
         description: "根据业务需求从知识库检索适配组件，无匹配则返回空结果",
         inputSchema: {
-          businessRequirement: z.string().length(100).describe("业务组件需求描述（如「带分页的商机列表表格组件」）"),
+          businessRequirement: z.string().min(1).describe("业务组件需求描述（如「带分页的商机列表表格组件」）"),
         },
       },
       async (args) => {
